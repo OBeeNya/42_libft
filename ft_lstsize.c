@@ -1,20 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: baubigna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/23 09:48:48 by baubigna          #+#    #+#             */
-/*   Updated: 2021/11/23 14:26:19 by baubigna         ###   ########.fr       */
+/*   Created: 2021/11/30 17:00:14 by baubigna          #+#    #+#             */
+/*   Updated: 2021/11/30 17:08:15 by baubigna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isdigit(int c)
+int	ft_lstsize(t_list *lst)
 {
-	if (c > 47 && c < 58)
-		return (1);
-	return (0);
+	int		i;
+	t_list	*a;
+
+	if (!lst)
+		return (0);
+	a = lst->next;
+	i = 1;
+	while (a)
+	{
+		i++;
+		a = a->next;
+	}
+	return (i);
 }

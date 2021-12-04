@@ -1,20 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: baubigna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/23 09:48:48 by baubigna          #+#    #+#             */
-/*   Updated: 2021/11/23 14:26:19 by baubigna         ###   ########.fr       */
+/*   Created: 2021/11/23 15:52:35 by baubigna          #+#    #+#             */
+/*   Updated: 2021/11/29 15:27:41 by baubigna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isdigit(int c)
+char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-	if (c > 47 && c < 58)
-		return (1);
-	return (0);
+	size_t	len2;
+
+	if (*little == '\0')
+		return ((char *)big);
+	len2 = ft_strlen(little);
+	while (*big != '\0' && len-- >= len2)
+	{
+		if (*big == *little && ft_strncmp(big, little, len2) == 0)
+			return ((char *)big);
+		big++;
+	}
+	return (NULL);
 }
