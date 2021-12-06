@@ -6,7 +6,7 @@
 /*   By: baubigna <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/27 14:47:53 by baubigna          #+#    #+#             */
-/*   Updated: 2021/11/30 14:26:12 by baubigna         ###   ########.fr       */
+/*   Updated: 2021/12/06 11:18:45 by baubigna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,15 @@
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char		*r;
+	size_t		l;
 	size_t		i;
 	size_t		j;
 
-	r = malloc(sizeof(char) * (len + 1));
+	l = ft_strlen(s);
+	if (l - start < len)
+		r = malloc(sizeof(char) * (l - start + 1));
+	else
+		r = malloc(sizeof(char) * (len + 1));
 	if (!r || !s)
 		return (r);
 	i = 0;
